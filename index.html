@@ -42,14 +42,15 @@ class Board extends React.Component {
   handleClick(i) {
     const squares = this.state.squares.slice();//mitä slice hyödyttää tässä???
     console.log(this.state.squares);
-    if (this.state.seuraavaOnX){
+    if (this.state.seuraavaOnX && !this.state.squares[i]){
     squares[i] = 'X';
     this.setState({squares: squares});
-    }else{
+    this.state.seuraavaOnX = !this.state.seuraavaOnX;
+  }else if(!this.state.seuraavaOnX && !this.state.squares[i]){
     squares[i] = 'O';
     this.setState({squares: squares});
-    }
     this.state.seuraavaOnX = !this.state.seuraavaOnX;
+    }
   //  Tein mun oman version kun en jaksanut miettiä tätä, haittaako?
   //  Tässä siis tutoriaalin koodi
   //   const squares = this.state.squares.slice();
