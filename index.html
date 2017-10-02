@@ -71,10 +71,11 @@ class Board extends React.Component {
     }else{
       seuraava = 'O';
     }
-    const status = 'Next player: ' + seuraava;
+    const status = 'Next player: ' + seuraava;//En kyllä saa tätä chekkaamaan onko joku
+    //voittanut tällä mun versiolla, tarvisi selitystä tohon calculateWinner functioon
 
 
-    function calculateWinner(squares) {
+    function calculateWinner(squares) {//Tätä en ihan ymmärrä, noi abct on aika hämäriä
       const lines = [
         [0, 1, 2],
         [3, 4, 5],
