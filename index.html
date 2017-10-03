@@ -10,6 +10,9 @@
 
     <script type="text/babel">
 
+var peliPaattynyt = false;
+
+
 
     class Square extends React.Component {
       render() {
@@ -29,7 +32,6 @@ class Board extends React.Component {
     this.state = {//<-- voiko tohon kirjottaa mitä vaan?
       squares: Array(9).fill(null), //JS Arrayt eivät ole ihan liian tuttuja
       seuraavaOnX: true,
-
     };
   }
 
@@ -40,8 +42,13 @@ class Board extends React.Component {
   }
 
   handleClick(i) {
-    const squares = this.state.squares.slice();//mitä slice hyödyttää tässä???
+    console.log(peliPaattynyt);
+    if(!peliPaattynyt){
+
+    const squares = this.state.squares.slice();
+
     console.log(this.state.squares);
+
     if (this.state.seuraavaOnX && !this.state.squares[i]){
     squares[i] = 'X';
     this.setState({squares: squares});
@@ -51,6 +58,7 @@ class Board extends React.Component {
     this.setState({squares: squares});
     this.state.seuraavaOnX = !this.state.seuraavaOnX;
     }
+  }
   //  Tein mun oman version kun en jaksanut miettiä tätä, haittaako?
   //  Tässä siis tutoriaalin koodi
   //   const squares = this.state.squares.slice();
@@ -72,7 +80,21 @@ class Board extends React.Component {
     }else{
       seuraava = 'O';
     }
-    const status = 'Next player: ' + seuraava;//En kyllä saa tätä chekkaamaan onko joku
+
+    var status = 'Next player: ' + seuraava;
+
+    if(calculateWinner(this.state.squares) == 'X'){
+      status = 'Winner: X';
+      peliPaattynyt = true;
+    }
+    else if(calculateWinner(this.state.squares) == 'O'){
+      status = 'Winner: Y';
+      peliPaattynyt = true;
+    }
+
+
+
+    //En kyllä saa tätä chekkaamaan onko joku
     //voittanut tällä mun versiolla, tarvisi selitystä tohon calculateWinner functioon
 
 
