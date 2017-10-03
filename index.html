@@ -29,8 +29,8 @@ class Board extends React.Component {
 //Lifting State Up tarkoittaa tarkalleen...
   constructor() {
     super();
-    this.state = {//<-- voiko tohon kirjottaa mitä vaan?
-      squares: Array(9).fill(null), //JS Arrayt eivät ole ihan liian tuttuja
+    this.state = {
+      squares: Array(9).fill(null),
       seuraavaOnX: true,
     };
   }
@@ -93,12 +93,7 @@ class Board extends React.Component {
     }
 
 
-
-    //En kyllä saa tätä chekkaamaan onko joku
-    //voittanut tällä mun versiolla, tarvisi selitystä tohon calculateWinner functioon
-
-
-    function calculateWinner(squares) {//Tätä en ihan ymmärrä, noi abct on aika hämäriä
+    function calculateWinner(squares) {
       const lines = [
         [0, 1, 2],
         [3, 4, 5],
