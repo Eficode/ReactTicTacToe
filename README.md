@@ -20,4 +20,6 @@ python -m http.server --cgi 8000 # Python 3
 
 ## Instructions/Assigment
 
-[React tutorial](https://facebook.github.io/react/tutorial/tutorial.html)
+* [React tutorial](https://facebook.github.io/react/tutorial/tutorial.html)
+
+* [This code in codepen](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)
